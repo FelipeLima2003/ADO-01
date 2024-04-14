@@ -1,10 +1,11 @@
-package pacote01;
+package calculo;
 
 import java.util.Scanner;
 
 public class Calculo {
 
     Scanner sc = new Scanner(System.in);
+
     public void irpf(float salario) {
         if (salario <= 2112) {
             System.out.printf("O salário é : R$ %.3f", salario);
@@ -27,34 +28,33 @@ public class Calculo {
             salario -= reducao;
 
             System.out.printf("O salário é : R$ %.3f", salario);
-       
+
         } else {
             float reducao = 884.96f;
             salario -= reducao;
 
             System.out.printf("O salário é : R$ %.3f", salario);
         }
-        
-        
+
     }
-    
+
     public void inss(float salario) {
         if (salario <= 1412) {
-            
-            float aliquota = 7.50f *100;
-            
-            salario -= aliquota;         
+
+            float aliquota = 7.50f * 100;
+
+            salario -= aliquota;
             System.out.printf("O salário é: R$ %.3f", salario);
         } else if (salario >= 1412.01 && salario <= 2666.68) {
 
-            float aliquota = 9.00f *100;
+            float aliquota = 9.00f * 100;
             salario -= aliquota;
 
             System.out.printf("O salário é : R$ %.3f", salario);
-            
+
         } else if (salario >= 2666.69 && salario <= 4000.03) {
 
-            float aliquota = 12.00f *100;
+            float aliquota = 12.00f * 100;
             salario -= aliquota;
 
             System.out.printf("O salario é: R$ %.3f", salario);
@@ -65,36 +65,67 @@ public class Calculo {
 
             System.out.printf("O salário é : R$ %.3f", salario);
         }
-        
-        
+
     }
 
-    public void valeTransporte (float salario){
-        
+    public void valeTransporte(float salario) {
+
         String confirmacao;
-        
+        float vt = salario * 0.06f;
         System.out.println("Você gostaria de ter o vale transporte? ");
         confirmacao = sc.nextLine();
-        
-        if (confirmacao.equals("Sim")){
-            float valeTransporte = salario *0.06f;
-            salario = salario - valeTransporte;
-            System.out.printf("O Salario com vale transporte é %.3f",salario);
-       }else{
-            System.out.printf("O salario continua o mesmo %.3f",salario);
+
+        if (confirmacao.equals("Sim")) {
+
+            salario = salario - vt;
+            System.out.printf("O Salario continua o mesmo ele [%.3f]", salario);
+        } else {
+            System.out.printf("O desconto � [%.3f] e o salario [%.3f]", vt, salario);
         }
     }
-    
-    public void valeRefeicao (float salario){
-        if (salario >= 1412){
+
+    public void valeRefeicao(float salario) {
+        float vr = salario * 0.03f;
+        if (salario <= 1412) {
             System.out.println("O Salario não muda");
-            
-       }else{
-           float valeRefeicao = salario * 0.03f;
-           salario = salario - valeRefeicao;
-           System.out.println("");
-        
+
+        } else {
+
+            salario = salario - vr;
+            System.out.printf("O desconto � [%.3f] e o salario [%.3f]", vr, salario);
+
+        }
+
     }
-     
-    
+
+    public void convenioMedico(float salario) {
+
+        float convenio = salario * 0.04f;
+        if (salario <= 1412) {
+            System.out.printf("O Salario continua o mesmo ele [%.3f]", salario);
+        } else {
+
+            salario = salario - vr;
+            System.out.printf("O desconto � [%.3f] e o salario [%.3f]", convenio, salario);
+
+        }
+
+    }
+
+    public void valeAlimentacao(float salario) {
+
+        float va  = salario * 0.04f;
+        if (salario <= (1412 * 3)) {
+            System.out.printf("O Salario continua o mesmo ele [%.3f]", salario);
+        } else {
+
+            salario = salario - va;
+            System.out.printf("O desconto � [%.3f] e o salario [%.3f]", va,salario );
+
+        }
+
+    }
+
+    s
+
 }
