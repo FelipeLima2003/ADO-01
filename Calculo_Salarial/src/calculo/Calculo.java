@@ -128,9 +128,11 @@ public class Calculo {
             System.out.printf("O desconto é [%.3f] e o salario [%.3f]", va,salario );
 
         }
+        
+        
+     sc.close();
 
     }
 
-    
-
+  
 }
