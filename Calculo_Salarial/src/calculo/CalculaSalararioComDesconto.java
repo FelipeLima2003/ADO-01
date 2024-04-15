@@ -17,7 +17,7 @@ public class CalculaSalararioComDesconto {
         Funcionario f = new Funcionario();
 
         f.setNome(nome);
-        f.setSalario(null);
+        f.setSalario(salario);
         
         return c.irpf(f);
 
