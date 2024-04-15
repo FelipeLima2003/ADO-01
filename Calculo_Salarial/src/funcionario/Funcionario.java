@@ -10,4 +10,24 @@ package funcionario;
  */
 public class Funcionario {
     
+    private String nome;
+    
+    private Float salario;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Float salario) {
+        this.salario = salario;
+    }
+
 }
