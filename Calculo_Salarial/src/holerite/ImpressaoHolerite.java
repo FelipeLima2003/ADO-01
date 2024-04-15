@@ -4,12 +4,13 @@
  */
 package holerite;
 
-/**
- *
- * @author Felipe Lima
- */
+import calculo.CalculaSalararioComDesconto;
+
 public class ImpressaoHolerite {
     public static void main(String[] args) {
+
+        float salarioComDesconto = CalculaSalararioComDesconto.SalarioComDesconto("daniel", 1900);
+        System.out.println("Salário com desconto: " + salarioComDesconto);
         
     }
 }
