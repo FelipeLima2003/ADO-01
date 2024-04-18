@@ -7,41 +7,42 @@ public class Calculo {
 
     Scanner sc = new Scanner(System.in);
 
-    public void irpf(float salario) {
+    public float irpf(float salario) {
        
         float reducao;
         if (salario <= 2112) {
-            System.out.printf("O Salario continua o mesmo ele [%.3f]", salario);
+           
+        return salario;
         } else if (salario >= 2112.01 && salario <= 2826.65) {
 
             reducao = 158.40f;
             salario -= reducao;
 
-            System.out.printf("O desconto é [%.3f] e o salario [%.3f]", reducao,salario);
+            return salario;
         } else if (salario >= 2826.66 && salario <= 3751.05) {
 
             reducao = 370.40f;
             salario -= reducao;
 
-            System.out.printf("A redução do IRPF é [%.3f] e o salario [%.3f]", reducao,salario);
+             return salario;
 
         } else if (salario >= 3751.06 && salario <= 4664.68) {
 
             reducao = 651.73f;
             salario -= reducao;
 
-            System.out.printf("A redução do IRPF é [%.3f] e o salario [%.3f]" ,reducao,salario);
+             return salario;
 
         } else {
             reducao = 884.96f;
             salario -= reducao;
 
-            System.out.printf("A redução do IRPF é [%.3f] e o salario [%.3f]" ,reducao,salario);
+             return salario;
         }
 
     }
 
-    public void inss(float salario) {
+    public float inss(float salario) {
         
         float aliquota;
         if (salario <= 1412) {
@@ -49,31 +50,31 @@ public class Calculo {
             aliquota = 7.50f * 100;
 
             salario -= aliquota;
-            System.out.printf("O Salario continua o mesmo ele [%.3f]", salario);
+            return salario;
         } else if (salario >= 1412.01 && salario <= 2666.68) {
 
             aliquota = 9.00f * 100;
             salario -= aliquota;
 
-            System.out.printf("A aliquota é [%.3f] e o salario [%.3f]", aliquota,salario);
+            return salario;
 
         } else if (salario >= 2666.69 && salario <= 4000.03) {
 
             aliquota = 12.00f * 100;
             salario -= aliquota;
 
-            System.out.printf("A aliquota é [%.3f] e o salario [%.3f]", aliquota,salario);
+             return salario;
 
         } else {
              aliquota = 14.00f * 100;
             salario -= aliquota;
 
-            System.out.printf("A aliquota é [%.3f] e o salario [%.3f]", aliquota,salario);
+             return salario;
         }
 
     }
 
-    public void valeTransporte(float salario) {
+    public float valeTransporte(float salario) {
 
         String confirmacao;
         float vt = salario * 0.06f;
@@ -83,16 +84,15 @@ public class Calculo {
         if (confirmacao.equals("Sim")) {
 
             salario = salario - vt;
-            System.out.printf("O Salario continua o mesmo ele [%.3f]", salario);
+            return salario;
         } else {
-            System.out.printf("O desconto é [%.3f] e o salario [%.3f]", vt, salario);
+            return salario;
         }
     }
 
-    public void valeRefeicao(float salario) {
+    public float valeRefeicao(float salario) {
         float vr = salario * 0.03f;
-        if (salario <= 1412) {
-            System.out.println("O Salario nÃƒÂ£o muda");
+         return salario;
 
         } else {
 
@@ -101,31 +101,27 @@ public class Calculo {
 
         }
 
-    }
-
-    public void convenioMedico(float salario) {
+    public float convenioMedico(float salario) {
 
         float convenio = salario * 0.04f;
         if (salario <= 1412) {
-            System.out.printf("O Salario continua o mesmo ele [%.3f]", salario);
+            return salario;
         } else {
-
             salario = salario - convenio;
-            System.out.printf("O desconto é [%.3f] e o salario [%.3f]", convenio, salario);
+            return salario;
 
         }
 
     }
 
-    public void valeAlimentacao(float salario) {
+    public float valeAlimentacao(float salario) {
 
         float va  = salario * 0.04f;
         if (salario <= (1412 * 3)) {
-            System.out.printf("O Salario continua o mesmo ele [%.3f]", salario);
+          
         } else {
 
-            salario = salario - va;
-            System.out.printf("O desconto é [%.3f] e o salario [%.3f]", va,salario );
+             return salario;
 
         }
         
@@ -134,5 +130,4 @@ public class Calculo {
 
     }
 
-  
-}
+ }
