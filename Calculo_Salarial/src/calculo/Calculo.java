@@ -1,12 +1,24 @@
+
 package calculo;
 
 
-import java.util.Scanner;
+
+
 
 public class Calculo {
 
-    Scanner sc = new Scanner(System.in);
-
+    public float horaExtra (float salario, float horasTrabalhadas){
+        float valorHora = salario/160;
+        float valorHoraExtra = 0f;
+        
+        if (horasTrabalhadas > 40) {
+            float horaExtra = (horasTrabalhadas - 40); 
+            valorHoraExtra = horaExtra* valorHora * 1.5f;
+        }
+        
+        return salario + valorHoraExtra;
+    }
+    
     public float irpf(float salario) {
        
         float reducao;
@@ -24,20 +36,21 @@ public class Calculo {
             reducao = 370.40f;
             salario -= reducao;
 
-             return salario;
+            return salario;
 
         } else if (salario >= 3751.06 && salario <= 4664.68) {
 
             reducao = 651.73f;
             salario -= reducao;
 
-             return salario;
+            return salario;
 
         } else {
             reducao = 884.96f;
             salario -= reducao;
 
-             return salario;
+             
+            return salario;
         }
 
     }
@@ -74,32 +87,23 @@ public class Calculo {
 
     }
 
-    public float valeTransporte(float salario) {
+    public float valeTransporte(float salario){
 
-        String confirmacao;
-        float vt = salario * 0.06f;
-        System.out.println("VocÃª gostaria de ter o vale transporte? ");
-        confirmacao = sc.nextLine();
-
-        if (confirmacao.equals("Sim")) {
-
-            salario = salario - vt;
-            return salario;
-        } else {
-            return salario;
-        }
+       float vt = salario * 0.06f;
+       salario = salario - vt;
+       return salario;
+    
     }
 
     public float valeRefeicao(float salario) {
         float vr = salario * 0.03f;
-         return salario;
-
-        } else {
-
-            salario = salario - vr;
-            System.out.printf("O desconto � [%.3f] e o salario [%.3f]", vr, salario);
-
+        if (salario <= 1412){
+            return salario;
+        }else {
+            salario -= vr;
+            return salario;
         }
+    }
 
     public float convenioMedico(float salario) {
 
@@ -120,14 +124,14 @@ public class Calculo {
         if (salario <= (1412 * 3)) {
           
         } else {
-
-             return salario;
+            
+           salario -= va;
+           return salario;
 
         }
         
         
-     sc.close();
-
+   
     }
 
- }
+}

@@ -10,6 +10,7 @@ public class ImpressaoHolerite {
     public static void main(String[] args) {
         int tam;
         Scanner sc = new Scanner (System.in);
+        Scanner lerTexto = new Scanner (System.in);
         
         System.out.print("Digite o número de pessoas que você gostaria de cadastrar: ");
         tam = sc.nextInt();
@@ -20,19 +21,18 @@ public class ImpressaoHolerite {
             funcionario[i] = new Funcionario();
             
             System.out.print("Informe o nome do funcionario\n");
-            funcionario[i].nome = sc.nextLine();
+            funcionario[i].nome = lerTexto.nextLine();
             
             System.out.print("Informe o cargo do funcionario\n ");
-            funcionario[i].cargo = sc.nextLine();
+            funcionario[i].cargo = lerTexto.nextLine();
             
-            System.out.print("Informe o cargo do funcionario\n ");
+            System.out.print("Informe a idade do funcionario\n ");
             funcionario[i].idade = sc.nextInt();
             
-            System.out.print("Informe o cargo do funcionario\n ");
+            System.out.print("Informe o salario do funcionario\n ");
             funcionario[i].salario = sc.nextFloat();
             
         }
         
-        switch()
     }
 }
