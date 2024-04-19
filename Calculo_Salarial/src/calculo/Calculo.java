@@ -127,7 +127,8 @@ public class Calculo {
 
         float va  = salario * 0.04f;
         if (salario <= (1412 * 3)) {
-          
+          return salario;
+                  
         } else {
             
            salario -= va;
@@ -135,8 +136,8 @@ public class Calculo {
 
         }
         
-        
-   
+      
     }
+    
 
 }
