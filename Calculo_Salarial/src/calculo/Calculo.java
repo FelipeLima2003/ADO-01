@@ -6,6 +6,11 @@ package calculo;
 
 
 public class Calculo {
+    
+    public float bonus (float salario){
+        float bonus = salario*0.05f;
+        return salario + bonus;
+    }
 
     public float horaExtra (float salario, float horasTrabalhadas){
         float valorHora = salario/160;
@@ -13,7 +18,7 @@ public class Calculo {
         
         if (horasTrabalhadas > 40) {
             float horaExtra = (horasTrabalhadas - 40); 
-            valorHoraExtra = horaExtra* valorHora * 1.5f;
+            valorHoraExtra = horaExtra* (valorHora * 1.5f);
         }
         
         return salario + valorHoraExtra;
