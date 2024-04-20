@@ -9,11 +9,12 @@ public class Calculo {
     
     public float bonus (float salario){
         float bonus = salario*0.05f;
-        return salario + bonus;
+        return bonus;
+        
     }
 
     public float horaExtra (float salario, float horasTrabalhadas){
-        float valorHora = salario/160;
+        float valorHora = salario/200;
         float valorHoraExtra = 0f;
         
         if (horasTrabalhadas > 40) {
@@ -21,41 +22,40 @@ public class Calculo {
             valorHoraExtra = horaExtra* (valorHora * 1.5f);
         }
         
-        return salario + valorHoraExtra;
+        return valorHoraExtra;
     }
     
+  
     public float irpf(float salario) {
-       
+   
         float reducao;
         if (salario <= 2112) {
            
-        return salario;
+            return 0;
         } else if (salario >= 2112.01 && salario <= 2826.65) {
 
             reducao = 158.40f;
-            salario -= reducao;
+            
 
-            return salario;
+            return reducao;
         } else if (salario >= 2826.66 && salario <= 3751.05) {
 
             reducao = 370.40f;
-            salario -= reducao;
-
-            return salario;
+           
+            return reducao;
 
         } else if (salario >= 3751.06 && salario <= 4664.68) {
 
             reducao = 651.73f;
-            salario -= reducao;
+     
 
-            return salario;
+            return reducao;
 
         } else {
             reducao = 884.96f;
-            salario -= reducao;
 
              
-            return salario;
+            return reducao;
         }
 
     }
@@ -67,27 +67,24 @@ public class Calculo {
 
             aliquota = 7.50f * 100;
 
-            salario -= aliquota;
-            return salario;
+            aliquota -= salario; 
+            return aliquota;
         } else if (salario >= 1412.01 && salario <= 2666.68) {
 
             aliquota = 9.00f * 100;
-            salario -= aliquota;
-
-            return salario;
+            return aliquota;
 
         } else if (salario >= 2666.69 && salario <= 4000.03) {
 
             aliquota = 12.00f * 100;
-            salario -= aliquota;
+            aliquota -= salario; 
 
-             return salario;
+             return aliquota;
 
         } else {
-             aliquota = 14.00f * 100;
-            salario -= aliquota;
-
-             return salario;
+            aliquota = 14.00f * 100;
+            aliquota -= salario; 
+             return aliquota;
         }
 
     }
@@ -95,18 +92,17 @@ public class Calculo {
     public float valeTransporte(float salario){
 
        float vt = salario * 0.06f;
-       salario = salario - vt;
-       return salario;
+  
+       return vt;
     
     }
 
     public float valeRefeicao(float salario) {
         float vr = salario * 0.03f;
         if (salario <= 1412){
-            return salario;
+            return 0;
         }else {
-            salario -= vr;
-            return salario;
+            return vr;
         }
     }
 
@@ -114,10 +110,9 @@ public class Calculo {
 
         float convenio = salario * 0.04f;
         if (salario <= 1412) {
-            return salario;
+            return 0;
         } else {
-            salario = salario - convenio;
-            return salario;
+            return convenio;
 
         }
 
@@ -127,17 +122,15 @@ public class Calculo {
 
         float va  = salario * 0.04f;
         if (salario <= (1412 * 3)) {
-          return salario;
+          return 0;
                   
         } else {
             
-           salario -= va;
-           return salario;
+           return va;
 
         }
         
       
     }
     
-
 }
