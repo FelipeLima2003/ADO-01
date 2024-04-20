@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ImpressaoHolerite {
 
-    @SuppressWarnings("empty-statement")
+   
     public static void main(String[] args) {
         int tam;
         String pergunta = null;

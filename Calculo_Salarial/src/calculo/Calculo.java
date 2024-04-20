@@ -7,8 +7,11 @@ package calculo;
 
 public class Calculo {
     
-    public float bonus (float salario){
-        float bonus = salario*0.05f;
+    // Classe Utilizada para criação dos metodos utilizados para relizar os calculos
+    public double bonus (double salario){
+        
+       
+        float bonus = (float) (salario*0.05f);
         return bonus;
         
     }
@@ -89,9 +92,9 @@ public class Calculo {
 
     }
 
-    public float valeTransporte(float salario){
+    public double valeTransporte(double salario){
 
-       float vt = salario * 0.06f;
+       float vt = (float) (salario * 0.06f);
   
        return vt;
     
