@@ -67,7 +67,7 @@ public class Calculo {
 
             aliquota = 7.50f * 100;
 
-            aliquota -= salario; 
+            //aliquota -= salario; 
             return aliquota;
         } else if (salario >= 1412.01 && salario <= 2666.68) {
 
@@ -77,13 +77,13 @@ public class Calculo {
         } else if (salario >= 2666.69 && salario <= 4000.03) {
 
             aliquota = 12.00f * 100;
-            aliquota -= salario; 
+            //aliquota -= salario; 
 
              return aliquota;
 
         } else {
             aliquota = 14.00f * 100;
-            aliquota -= salario; 
+            //aliquota -= salario; 
              return aliquota;
         }
 

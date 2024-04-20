@@ -9,11 +9,11 @@ public class ImpressaoHolerite {
     @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
         int tam;
-        String pergunta = "Sim";
+        String pergunta = null;
 
         Calculo calculo = new Calculo();
-        Scanner sc = new Scanner(System.in);
-        Scanner lerTexto = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); //Scanner para numeros
+        Scanner lerTexto = new Scanner(System.in); //Scanner para texto
 
         System.out.print("-------------------------------------------------------\n");
         System.out.print("\tBem vindo ao programa: Calcudo do Holerite\t");
@@ -40,23 +40,24 @@ public class ImpressaoHolerite {
             funcionario[i].salario = sc.nextFloat();
 
         }
+        do {
 
-        for (int i = 0; i < funcionario.length; i++) {
-            System.out.printf("O Programa irá mostrar os beneficios e desconto do salario bruto do %dº funcionario/n", i + 1);
+            for (int i = 0; i < funcionario.length; i++) {
+                System.out.printf("O Programa irá mostrar os beneficios e desconto do salario bruto do %dº funcionario/n", i + 1);
 
-            System.out.print("-------------------------------------------------------\n");
-            System.out.println("Digite a operação que você gostaria no Holerite: ");
-            System.out.println("1: Verificar o salario e beneficios do funcionario");
-            System.out.println("2: Verificar o desconto retido na folha (IRPF) e INSS");
-            System.out.println("3: Verificar os debitos e o salario liquido do funcionario ");
-            System.out.println("-------------------------------------------------------\n");
-            int resp = sc.nextInt();
-            do {
+                System.out.print("-------------------------------------------------------\n");
+                System.out.println("Digite a operação que você gostaria no Holerite: ");
+                System.out.println("1: Verificar o salario e beneficios do funcionario");
+                System.out.println("2: Verificar o desconto retido na folha (IRPF) e INSS");
+                System.out.println("3: Verificar os debitos e o salario liquido do funcionario ");
+                System.out.println("-------------------------------------------------------\n");
+                int resp = sc.nextInt();
+
                 switch (resp) {
 
                     case 1:
 
-                        System.out.print("O Funcionario bateu a meta necessaria para o bonus\n Digite Sim ou Não");
+                        System.out.print("O Funcionario bateu a meta necessaria para o bonus Digite Sim ou Não: ");
                         String simNao = lerTexto.nextLine();
 
                         float salarioBrutoComBonus = funcionario[i].salario + calculo.bonus(funcionario[i].salario) + calculo.horaExtra(funcionario[i].salario, funcionario[i].horasTrabalhadas);
@@ -84,10 +85,10 @@ public class ImpressaoHolerite {
                             System.out.println("-------------------------------------------------------\n");
 
                             System.out.printf("O salario bruto do funcionario com acrescimos é: %.3f", salarioBrutoSemBonus);
-                       
+
                         }
-                        
-                       break;
+
+                        break;
                     case 2:
                         System.out.print("Conforme o salario do funcionaro o desconto do IRPF é : " + calculo.irpf(funcionario[i].salario) + "\n");
                         System.out.print("Conforme o salario do funcionaro o desconto do INSS é : " + calculo.inss(-funcionario[i].salario) + "\n");
@@ -95,12 +96,18 @@ public class ImpressaoHolerite {
 
                     case 3:
 
-                        System.out.print("O Funcionario escolheu o vale transporte:/n Digite Sim ou Não");
+                        System.out.print("O Funcionario escolheu o vale transporte Digite Sim ou Não: ");
                         simNao = lerTexto.nextLine();
 
-                        float salarioLiquidoComVt = funcionario[i].salario - (calculo.irpf(funcionario[i].salario) + calculo.inss(funcionario[i].salario) + calculo.valeAlimentacao(funcionario[i].salario) + calculo.valeRefeicao(funcionario[i].salario) + calculo.convenioMedico(funcionario[i].salario) + calculo.valeTransporte(funcionario[i].salario));
-                        float salarioLiquidoSemVt = funcionario[i].salario - (calculo.irpf(funcionario[i].salario) + calculo.inss(funcionario[i].salario) + calculo.valeAlimentacao(funcionario[i].salario) + calculo.valeRefeicao(funcionario[i].salario) + calculo.convenioMedico(funcionario[i].salario));
+                      
+                        
+                        float desconto = calculo.irpf(funcionario[i].salario) + calculo.inss(funcionario[i].salario) + calculo.valeRefeicao(funcionario[i].salario) + calculo.convenioMedico(funcionario[i].salario) + calculo.valeTransporte(funcionario[i].salario);    
+                        float descontoSemVt = calculo.irpf(funcionario[i].salario) + calculo.inss(funcionario[i].salario) + calculo.valeRefeicao(funcionario[i].salario) + calculo.convenioMedico(funcionario[i].salario);
 
+                     
+                        float salarioLiquidoComVt = funcionario[i].salario - desconto;
+                        float salarioLiquidoSemVt = funcionario[i].salario - descontoSemVt;
+                        
                         if ((simNao.equalsIgnoreCase("Sim"))) {
 
                             System.out.print("Conforme o salario do funcionaro o desconto do Vale transporte é : " + calculo.valeTransporte(funcionario[i].salario) + "\n");
@@ -121,19 +128,24 @@ public class ImpressaoHolerite {
                             System.out.println("-------------------------------------------------------\n");
                             System.out.print("O salario liquido do funcionario é: " + salarioLiquidoSemVt + "\n");
                         }
-                        
-                       break;
+
+                        break;
 
                     default:
-                        System.out.println("Acredito que você colocou algum valor errado, por favor repita o processo.");
-                        break;
+                        System.out.println("Opção invalida");
 
                 }
 
-                System.out.print("Você gostaria de refazer o processo? digite: Sim ou não");
-                pergunta = sc.nextLine();
-            }while (pergunta.equalsIgnoreCase("Sim"));
-        }
-        
+               
+            }
+            
+            
+        System.out.println("\nDeseja continuar? (Sim/Não): ");
+        pergunta = lerTexto.nextLine();
+        }while (pergunta.equalsIgnoreCase("Sim"));
+       
+    sc.close();
+    lerTexto.close();
     }
+
 }
