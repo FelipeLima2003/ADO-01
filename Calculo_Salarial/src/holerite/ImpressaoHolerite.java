@@ -19,7 +19,7 @@ public class ImpressaoHolerite {
         System.out.print("\tBem vindo ao programa: Calcudo do Holerite\t");
         System.out.print("\n-------------------------------------------------------\n");
 
-        System.out.print("\tDigite o número de pessoas que você gostaria de cadastrar: ");
+        System.out.print("Digite o número de pessoas que você gostaria de cadastrar:");
         tam = sc.nextInt();
         System.out.print("-------------------------------------------------------\n");
         Funcionario[] funcionario = new Funcionario[tam];
@@ -38,18 +38,22 @@ public class ImpressaoHolerite {
 
             System.out.print("Informe o salario do funcionario: \n ");
             funcionario[i].salario = sc.nextFloat();
-
+            System.out.println("");
         }
         do {
 
             for (int i = 0; i < funcionario.length; i++) {
                 System.out.printf("O Programa irá mostrar os beneficios e desconto do salario bruto do %dº funcionario/n", i + 1);
-
-                System.out.print("-------------------------------------------------------\n");
+                
+                System.out.println("\t MENU - Holerite \t");
+                System.out.println("\n-------------------------------------------------------\n");
+                System.out.println("");
                 System.out.println("Digite a operação que você gostaria no Holerite: ");
+                System.out.println("");
                 System.out.println("1: Verificar o salario e beneficios do funcionario");
                 System.out.println("2: Verificar o desconto retido na folha (IRPF) e INSS");
-                System.out.println("3: Verificar os debitos e o salario liquido do funcionario ");
+                System.out.println("3: Verificar os debitos e o salario liquido do funcionario");
+                System.out.println("");
                 System.out.println("-------------------------------------------------------\n");
                 int resp = sc.nextInt();
 
@@ -60,7 +64,7 @@ public class ImpressaoHolerite {
                         System.out.print("O Funcionario bateu a meta necessaria para o bonus Digite Sim ou Não: ");
                         String simNao = lerTexto.nextLine();
 
-                        float salarioBrutoComBonus = funcionario[i].salario + calculo.bonus(funcionario[i].salario) + calculo.horaExtra(funcionario[i].salario, funcionario[i].horasTrabalhadas);
+                        float salarioBrutoComBonus = (float) (funcionario[i].salario + calculo.bonus(funcionario[i].salario) + calculo.horaExtra(funcionario[i].salario, funcionario[i].horasTrabalhadas));
                         float salarioBrutoSemBonus = funcionario[i].salario + calculo.horaExtra(funcionario[i].salario, funcionario[i].horasTrabalhadas);
 
                         if ((simNao.equalsIgnoreCase("Sim"))) {
@@ -101,7 +105,7 @@ public class ImpressaoHolerite {
 
                       
                         
-                        float desconto = calculo.irpf(funcionario[i].salario) + calculo.inss(funcionario[i].salario) + calculo.valeRefeicao(funcionario[i].salario) + calculo.convenioMedico(funcionario[i].salario) + calculo.valeTransporte(funcionario[i].salario);    
+                        float desconto = (float) (calculo.irpf(funcionario[i].salario) + calculo.inss(funcionario[i].salario) + calculo.valeRefeicao(funcionario[i].salario) + calculo.convenioMedico(funcionario[i].salario) + calculo.valeTransporte(funcionario[i].salario));    
                         float descontoSemVt = calculo.irpf(funcionario[i].salario) + calculo.inss(funcionario[i].salario) + calculo.valeRefeicao(funcionario[i].salario) + calculo.convenioMedico(funcionario[i].salario);
 
                      
@@ -132,7 +136,7 @@ public class ImpressaoHolerite {
                         break;
 
                     default:
-                        System.out.println("Opção invalida");
+                        System.out.println("Opção invalida, por favor tente novamente.");
 
                 }
 
@@ -146,6 +150,9 @@ public class ImpressaoHolerite {
        
     sc.close();
     lerTexto.close();
+    
+        System.out.println("\t------- Fim do programa...---------\t");
+        System.exit(0);
     }
 
 }
