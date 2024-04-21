@@ -8,15 +8,22 @@ public class ImpressaoHolerite {
 
    
     public static void main(String[] args) {
+        /*Metodo main responsavel por popular o array tipado e também 
+       contem o menu do programa Holerite
+        */
+        
+        
         int tam;
         String pergunta = null;
 
         Calculo calculo = new Calculo();
         Scanner sc = new Scanner(System.in); //Scanner para numeros
         Scanner lerTexto = new Scanner(System.in); //Scanner para texto
-
+        
+        
+        System.out.println("\t MENU - Holerite \t");
         System.out.print("-------------------------------------------------------\n");
-        System.out.print("\tBem vindo ao programa: Calcudo do Holerite\t");
+        System.out.print("\tSeja bem vindo ao programa: Calcudo do Holerite\t");
         System.out.print("\n-------------------------------------------------------\n");
 
         System.out.print("Digite o número de pessoas que você gostaria de cadastrar:");
@@ -38,7 +45,8 @@ public class ImpressaoHolerite {
 
             System.out.print("Informe o salario do funcionario: \n ");
             funcionario[i].salario = sc.nextFloat();
-            System.out.println("");
+            
+           System.out.println("");
         }
         do {
 
@@ -51,7 +59,9 @@ public class ImpressaoHolerite {
                 System.out.println("Digite a operação que você gostaria no Holerite: ");
                 System.out.println("");
                 System.out.println("1: Verificar o salario e beneficios do funcionario");
+                System.out.println("");
                 System.out.println("2: Verificar o desconto retido na folha (IRPF) e INSS");
+                System.out.println("");
                 System.out.println("3: Verificar os debitos e o salario liquido do funcionario");
                 System.out.println("");
                 System.out.println("-------------------------------------------------------\n");
