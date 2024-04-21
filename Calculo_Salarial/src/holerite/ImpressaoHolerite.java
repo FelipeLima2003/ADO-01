@@ -20,12 +20,13 @@ public class ImpressaoHolerite {
         Scanner sc = new Scanner(System.in); //Scanner para numeros
         Scanner lerTexto = new Scanner(System.in); //Scanner para texto
         
-        
-        System.out.println("\t MENU - Holerite \t");
+        System.out.print("-------------------------------------------------------\n");
+        System.out.println("\tHolerite\t");
         System.out.print("-------------------------------------------------------\n");
         System.out.print("\tSeja bem vindo ao programa: Calcudo do Holerite\t");
         System.out.print("\n-------------------------------------------------------\n");
-
+        
+        
         System.out.print("Digite o número de pessoas que você gostaria de cadastrar:");
         tam = sc.nextInt();
         System.out.print("-------------------------------------------------------\n");
