@@ -13,6 +13,8 @@ public class Calculo {
     A classe possui os metodos de adição ao salario do funcionario como o metodo bonus e horaExta.
     E também possui metodos de desconto do salario que são o IRPF, INSS, Vt,Va,Vr,conveinio medico.
     */
+    
+    
     public double bonus (double salario){
         
        
@@ -129,6 +131,7 @@ public class Calculo {
     public float valeAlimentacao(float salario) {
 
         float va  = salario * 0.04f;
+       
         if (salario <= (1412 * 3)) {
           return 0;
                   
