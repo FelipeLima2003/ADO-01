@@ -8,18 +8,15 @@ public class ImpressaoHolerite {
 
    
     public static void main(String[] args) {
-        /*Metodo main responsavel por popular o array tipado e também 
-       contem o menu do programa Holerite
-        */
-        
+
         
         int tam;
         String pergunta = null;
 
-        Calculo calculo = new Calculo();
+        Calculo calculo = new Calculo();    
         Scanner sc = new Scanner(System.in); //Scanner para numeros
         Scanner lerTexto = new Scanner(System.in); //Scanner para texto
-        
+
         System.out.print("-------------------------------------------------------\n");
         System.out.println("\tHolerite\t");
         System.out.print("-------------------------------------------------------\n");
@@ -36,16 +33,16 @@ public class ImpressaoHolerite {
             funcionario[i] = new Funcionario();
 
             System.out.print("Informe o nome do funcionario: \n");
-            funcionario[i].nome = lerTexto.nextLine();
+            funcionario[i].setNome(lerTexto.nextLine());
 
             System.out.print("Informe o cargo do funcionario: \n ");
-            funcionario[i].cargo = lerTexto.nextLine();
+           funcionario[i].setCargo(lerTexto.nextLine());
 
             System.out.print("Informe as horas trabalhadas do funcionario: \n ");
-            funcionario[i].horasTrabalhadas = sc.nextFloat();
+            funcionario[i].setHorasTrabalhadas(sc.nextFloat());
 
             System.out.print("Informe o salario do funcionario: \n ");
-            funcionario[i].salario = sc.nextFloat();
+            funcionario[i].setSalario(sc.nextFloat());
             
            System.out.println("");
         }
@@ -75,15 +72,15 @@ public class ImpressaoHolerite {
                         System.out.print("O Funcionario bateu a meta necessaria para o bonus Digite Sim ou Não: ");
                         String simNao = lerTexto.nextLine();
 
-                        float salarioBrutoComBonus = (float) (funcionario[i].salario + calculo.bonus(funcionario[i].salario) + calculo.horaExtra(funcionario[i].salario, funcionario[i].horasTrabalhadas));
-                        float salarioBrutoSemBonus = funcionario[i].salario + calculo.horaExtra(funcionario[i].salario, funcionario[i].horasTrabalhadas);
+                        float salarioBrutoComBonus = (float) (funcionario[i].getSalario() + calculo.bonus(funcionario[i].getSalario()) + calculo.horaExtra(funcionario[i].getSalario(), funcionario[i].getHorasTrabalhadas()));
+                        float salarioBrutoSemBonus = (funcionario[i].getSalario() + calculo.horaExtra(funcionario[i].getSalario(), funcionario[i].getHorasTrabalhadas()));
 
                         if ((simNao.equalsIgnoreCase("Sim"))) {
 
-                            System.out.print("O nome do funcionario é:  " + funcionario[i].nome + "\n");
-                            System.out.print("O salario é : " + funcionario[i].salario + "\n");
-                            System.out.printf("As horas trabalhas são: %.3f horas e o salario com as horas extras é %.3f + \n", funcionario[i].horasTrabalhadas, calculo.horaExtra(funcionario[i].horasTrabalhadas, funcionario[i].salario));
-                            System.out.print("O Bonus é : " + calculo.bonus(funcionario[i].salario) + "\n");
+                            System.out.print("O nome do funcionario é:  " + funcionario[i].getNome() + "\n");
+                            System.out.print("O salario é : " + funcionario[i].getSalario() + "\n");
+                            System.out.printf("As horas trabalhas são: %.3f horas e o salario com as horas extras é %.3f + \n", funcionario[i].getSalario(), calculo.horaExtra(funcionario[i].getHorasTrabalhadas(), funcionario[i].getSalario()));
+                            System.out.print("O Bonus é : " + calculo.bonus(funcionario[i].getSalario()) + "\n");
 
                             System.out.println("");
                             System.out.println("-------------------------------------------------------\n");
@@ -91,10 +88,10 @@ public class ImpressaoHolerite {
                             System.out.printf("O salario bruto do funcionario com acrescimos é: %.3f", salarioBrutoComBonus);
 
                         } else {
-                            System.out.print("O nome do funcionario é:  " + funcionario[i].nome + "\n");
-                            System.out.print("O salario é : " + funcionario[i].salario + "\n");
-                            System.out.printf("As horas trabalhas são: %.3f horas e o salario com as horas extras é %.3f + \n", funcionario[i].horasTrabalhadas, calculo.horaExtra(funcionario[i].horasTrabalhadas, funcionario[i].salario));
-                            System.out.print("O Bonus é : " + calculo.bonus(funcionario[i].salario) + "\n");
+                            System.out.print("O nome do funcionario é:  " + funcionario[i].getNome() + "\n");
+                            System.out.print("O salario é : " + funcionario[i].getSalario() + "\n");
+                            System.out.printf("As horas trabalhas são: %.3f horas e o salario com as horas extras é %.3f + \n", funcionario[i].getHorasTrabalhadas(), calculo.horaExtra(funcionario[i].getHorasTrabalhadas(), funcionario[i].getSalario()));
+                            System.out.print("O Bonus é : " + calculo.bonus(funcionario[i].getSalario()) + "\n");
 
                             System.out.println("");
                             System.out.println("-------------------------------------------------------\n");
@@ -105,8 +102,8 @@ public class ImpressaoHolerite {
 
                         break;
                     case 2:
-                        System.out.print("Conforme o salario do funcionaro o desconto do IRPF é : " + calculo.irpf(funcionario[i].salario) + "\n");
-                        System.out.print("Conforme o salario do funcionaro o desconto do INSS é : " + calculo.inss(-funcionario[i].salario) + "\n");
+                        System.out.print("Conforme o salario do funcionaro o desconto do IRPF é : " + calculo.irpf(funcionario[i].getSalario()) + "\n");
+                        System.out.print("Conforme o salario do funcionaro o desconto do INSS é : " + calculo.inss(-funcionario[i].getSalario()) + "\n");
                         break;
 
                     case 3:
@@ -116,19 +113,19 @@ public class ImpressaoHolerite {
 
                       
                         
-                        float desconto = (float) (calculo.irpf(funcionario[i].salario) + calculo.inss(funcionario[i].salario) + calculo.valeRefeicao(funcionario[i].salario) + calculo.convenioMedico(funcionario[i].salario) + calculo.valeTransporte(funcionario[i].salario));    
-                        float descontoSemVt = calculo.irpf(funcionario[i].salario) + calculo.inss(funcionario[i].salario) + calculo.valeRefeicao(funcionario[i].salario) + calculo.convenioMedico(funcionario[i].salario);
+                        float desconto = (float) (calculo.irpf(funcionario[i].getSalario()) + calculo.inss(funcionario[i].getSalario()) + calculo.valeRefeicao(funcionario[i].getSalario()) + calculo.convenioMedico(funcionario[i].getSalario()) + calculo.valeTransporte(funcionario[i].getSalario()));    
+                        float descontoSemVt = calculo.irpf(funcionario[i].getSalario()) + calculo.inss(funcionario[i].getSalario()) + calculo.valeRefeicao(funcionario[i].getSalario()) + calculo.convenioMedico(funcionario[i].getSalario());
 
                      
-                        float salarioLiquidoComVt = funcionario[i].salario - desconto;
-                        float salarioLiquidoSemVt = funcionario[i].salario - descontoSemVt;
+                        float salarioLiquidoComVt = funcionario[i].getSalario() - desconto;
+                        float salarioLiquidoSemVt = funcionario[i].getSalario() - descontoSemVt;
                         
                         if ((simNao.equalsIgnoreCase("Sim"))) {
 
-                            System.out.print("Conforme o salario do funcionaro o desconto do Vale transporte é : " + calculo.valeTransporte(funcionario[i].salario) + "\n");
-                            System.out.print("Conforme o salario do funcionaro o desconto do Vale Refeição é : " + calculo.valeRefeicao(funcionario[i].salario) + "\n");
-                            System.out.print("Conforme o salario do funcionaro o desconto do Convenio Medico é : " + calculo.convenioMedico(funcionario[i].salario) + "\n");
-                            System.out.print("Conforme o salario do funcionaro o desconto do Vale Alimentação é : " + calculo.valeAlimentacao(funcionario[i].salario) + "\n");
+                            System.out.print("Conforme o salario do funcionaro o desconto do Vale transporte é : " + calculo.valeTransporte(funcionario[i].getSalario()) + "\n");
+                            System.out.print("Conforme o salario do funcionaro o desconto do Vale Refeição é : " + calculo.valeRefeicao(funcionario[i].getSalario()) + "\n");
+                            System.out.print("Conforme o salario do funcionaro o desconto do Convenio Medico é : " + calculo.convenioMedico(funcionario[i].getSalario()) + "\n");
+                            System.out.print("Conforme o salario do funcionaro o desconto do Vale Alimentação é : " + calculo.valeAlimentacao(funcionario[i].getSalario()) + "\n");
 
                             System.out.println("");
                             System.out.println("-------------------------------------------------------\n");
@@ -136,9 +133,9 @@ public class ImpressaoHolerite {
                             System.out.print("O salario liquido do funcionario é: " + salarioLiquidoComVt + "\n");
 
                         } else {
-                            System.out.print("Conforme o salario do funcionaro o desconto do Vale Refeição é : " + calculo.valeRefeicao(funcionario[i].salario) + "\n");
-                            System.out.print("Conforme o salario do funcionaro o desconto do Convenio Medico é : " + calculo.convenioMedico(funcionario[i].salario) + "\n");
-                            System.out.print("Conforme o salario do funcionaro o desconto do Vale Alimentação é : " + calculo.valeAlimentacao(funcionario[i].salario) + "\n");
+                            System.out.print("Conforme o salario do funcionaro o desconto do Vale Refeição é : " + calculo.valeRefeicao(funcionario[i].getSalario()) + "\n");
+                            System.out.print("Conforme o salario do funcionaro o desconto do Convenio Medico é : " + calculo.convenioMedico(funcionario[i].getSalario()) + "\n");
+                            System.out.print("Conforme o salario do funcionaro o desconto do Vale Alimentação é : " + calculo.valeAlimentacao(funcionario[i].getSalario()) + "\n");
                             System.out.println("");
                             System.out.println("-------------------------------------------------------\n");
                             System.out.print("O salario liquido do funcionario é: " + salarioLiquidoSemVt + "\n");

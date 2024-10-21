@@ -8,8 +8,8 @@ public class Funcionario {
     
     private String nome;
     private String cargo;
-    private double salario;
-    private double horasTrabalhadas;
+    private float salario;
+    private float horasTrabalhadas;
 
     public String getNome() {
         return nome;
@@ -27,19 +27,19 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
-    public double getSalario() {
+    public float getSalario() {
         return salario;
     }
 
-    public void setSalario(double salario) {
+    public void setSalario(float salario) {
         this.salario = salario;
     }
 
-    public double getHorasTrabalhadas() {
+    public float getHorasTrabalhadas() {
         return horasTrabalhadas;
     }
 
-    public void setHorasTrabalhadas(double horasTrabalhadas) {
+    public void setHorasTrabalhadas(float horasTrabalhadas) {
         this.horasTrabalhadas = horasTrabalhadas;
     }
 }
