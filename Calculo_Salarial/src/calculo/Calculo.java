@@ -15,11 +15,18 @@ public class Calculo {
     */
     
     
-    public double bonus (double salario){
+    public double bonus (float salario){
         
        
         float bonus = (float) (salario*0.05f);
         return bonus;
+        
+    }
+    
+     public float salarioComBonus(float salario){
+        double salarioComBonus = salario + bonus(salario);
+      
+        return (float) salarioComBonus;
         
     }
 
@@ -34,6 +41,7 @@ public class Calculo {
         
         return valorHoraExtra;
     }
+    
     
   
     public float irpf(float salario) {
@@ -98,6 +106,8 @@ public class Calculo {
         }
 
     }
+    
+   
 
     public double valeTransporte(double salario){
 
@@ -137,7 +147,7 @@ public class Calculo {
                   
         } else {
             
-           return va;
+         return va;
 
         }
         
