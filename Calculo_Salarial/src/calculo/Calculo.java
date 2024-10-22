@@ -5,7 +5,7 @@ package calculo;
 
 
 
-public class Calculo {
+public class Calculo implements CalculoSalarioBonificacao, CalculoSalarioDescontos {
     
     // Classe Utilizada para criação dos metodos utilizados para relizar os calculos
     
@@ -15,6 +15,7 @@ public class Calculo {
     */
     
     
+    @Override
     public double bonus (float salario){
         
        
@@ -30,6 +31,7 @@ public class Calculo {
         
     }
 
+    @Override
     public float horaExtra (float salario, float horasTrabalhadas){
         float valorHora = salario/200;
         float valorHoraExtra = 0f;
@@ -44,6 +46,7 @@ public class Calculo {
     
     
   
+    @Override
     public float irpf(float salario) {
    
         float reducao;
@@ -78,6 +81,7 @@ public class Calculo {
 
     }
 
+    @Override
     public float inss(float salario) {
         
         float aliquota;
@@ -109,7 +113,8 @@ public class Calculo {
     
    
 
-    public double valeTransporte(double salario){
+    @Override
+    public double valeTransporte(float salario){
 
        float vt = (float) (salario * 0.06f);
   
@@ -117,6 +122,7 @@ public class Calculo {
     
     }
 
+    @Override
     public float valeRefeicao(float salario) {
         float vr = salario * 0.03f;
         if (salario <= 1412){
@@ -126,6 +132,7 @@ public class Calculo {
         }
     }
 
+    @Override
     public float convenioMedico(float salario) {
 
         float convenio = salario * 0.04f;
@@ -138,6 +145,7 @@ public class Calculo {
 
     }
 
+    @Override
     public float valeAlimentacao(float salario) {
 
         float va  = salario * 0.04f;
@@ -153,5 +161,7 @@ public class Calculo {
         
       
     }
+
+  
     
 }

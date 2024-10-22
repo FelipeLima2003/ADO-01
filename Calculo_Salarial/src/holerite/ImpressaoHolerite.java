@@ -29,16 +29,16 @@ public class ImpressaoHolerite {
         for (int i = 0; i < funcionario.length; i++) {
             funcionario[i] = new Funcionario();
 
-            System.out.print("Informe o nome do funcionario: \n");
+            System.out.print("Informe o nome do funcionario: ");
             funcionario[i].setNome(lerTexto.nextLine());
 
-            System.out.print("Informe o cargo do funcionario: \n ");
+            System.out.print("\nInforme o cargo do funcionario: ");
             funcionario[i].setCargo(lerTexto.nextLine());
 
-            System.out.print("Informe as horas trabalhadas do funcionario: \n ");
+            System.out.print("\nInforme as horas trabalhadas do funcionario: ");
             funcionario[i].setHorasTrabalhadas(sc.nextFloat());
 
-            System.out.print("Informe o salario do funcionario: \n ");
+            System.out.print("\nInforme o salario do funcionario: ");
             funcionario[i].setSalario(sc.nextFloat());
 
             System.out.println("");
@@ -55,7 +55,7 @@ public class ImpressaoHolerite {
             System.out.println("");
             System.out.println("1: Verificar o salario e beneficios do funcionario");
             System.out.println("");
-            System.out.println("2: Verificar o desconto retido na folha (IRPF) e INSS");
+            System.out.println("2: Verificar o desconto retido na folha IRPF e INSS");
             System.out.println("");
             System.out.println("3: Verificar os debitos e o salario liquido do funcionario");
             System.out.println("");
