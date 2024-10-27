@@ -1,5 +1,5 @@
 
-package calculo;
+package br.salario.calculo;
 
 
 
