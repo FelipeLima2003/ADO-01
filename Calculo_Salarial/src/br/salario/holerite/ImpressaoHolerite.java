@@ -80,19 +80,23 @@ public class ImpressaoHolerite {
 
                     case 2:
                         System.out.println("-------------------------------------------------------");
+                        System.out.printf("Funcionario: %s |\n",func.getNome());
                         System.out.printf("| Desconto IRPF: %.2f                                  |\n", calculo.irpf(func.getSalario()));
                         System.out.printf("| Desconto INSS: %.2f                                  |\n", calculo.inss(func.getSalario()));
                         System.out.println("-------------------------------------------------------");
                         break;
 
                     case 3:
+              
                         System.out.println("-------------------------------------------------------");
+                        System.out.printf("Funcionario: %s |\n",func.getNome());
                         System.out.print("O funcionário escolheu vale transporte? (Sim/Não): ");
                         simNao = lerTexto.nextLine();
                         
                         float descontosComVt = (float) (calculo.irpf(func.getSalario()) + calculo.inss(func.getSalario()) + calculo.valeRefeicao(func.getSalario()) + calculo.convenioMedico(func.getSalario()) + (simNao.equalsIgnoreCase("Sim") ? calculo.valeTransporte(func.getSalario()) : 0));
                         float salarioLiquido = func.getSalario() - descontosComVt;
-
+                        
+                        System.out.printf("Funcionario: %s |\n",func.getNome());
                         System.out.printf("| Desconto vale transporte: %.2f                      |\n", simNao.equalsIgnoreCase("Sim") ? calculo.valeTransporte(func.getSalario()) : 0);
                         System.out.printf("| Desconto vale refeição: %.2f                        |\n", calculo.valeRefeicao(func.getSalario()));
                         System.out.printf("| Desconto convênio médico: %.2f                      |\n", calculo.convenioMedico(func.getSalario()));
