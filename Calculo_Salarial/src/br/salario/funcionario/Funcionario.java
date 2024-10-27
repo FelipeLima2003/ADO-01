@@ -1,5 +1,5 @@
 
-package funcionario;
+package br.salario.funcionario;
 
 
 public class Funcionario {
